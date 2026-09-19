@@ -1,2 +1,1 @@
-# Journal
-Write your Journal questions and notes here.
+PHASE 1 - The base case is the if (item instanceof FileItem) check that returns 1. General case is when the item is a Folder. Always smaller since the method is never called on the same folder again, only on that folders children. It terminates because the tree has a limited number of items and levels.
