@@ -17,5 +17,10 @@ public class Main {
 
         FileSystemAnalyzer.printHierarchy(root, "");
         System.out.println("Total files: " + FileSystemAnalyzer.countFilesRecursive(root));
+
+        System.out.println("Total size: " + FileSystemAnalyzer.calculateTotalSizeRecursive(root) + " KB");
+
+        FileItem largest = FileSystemAnalyzer.findLargestFileRecursive(root);
+        System.out.println("Largest file: " + largest.getName() + " (" + largest.getSizeInKB() + " KB)");
     }
 }

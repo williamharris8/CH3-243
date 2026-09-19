@@ -1,1 +1,3 @@
 PHASE 1 - The base case is the if (item instanceof FileItem) check that returns 1. General case is when the item is a Folder. Always smaller since the method is never called on the same folder again, only on that folders children. It terminates because the tree has a limited number of items and levels.
+
+PHASE 2 - When a folder only has empty subfolders the method checks each. Subfolders have nothing inside so its loop never runs and returns null. This works well because there is no real file to return and its easy to check for. Code avoids NullPointerException by checking childMax != null before using childMax. Also checks largest == null first so it never calls a method ona  null largest.

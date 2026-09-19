@@ -24,4 +24,34 @@ public class FileSystemAnalyzer {
             }
         }
     }
+    public static int calculateTotalSizeRecursive(FileSystemItem item) {
+        if (item instanceof FileItem) {
+            return item.getSizeInKB();
+        }
+
+        Folder folder = (Folder) item;
+        int total = 0;
+        for (FileSystemItem child : folder.getItems()) {
+            total = total + calculateTotalSizeRecursive(child);
+        }
+        return total;
+    }
+
+    public static FileItem findLargestFileRecursive(FileSystemItem item) {
+        if (item instanceof FileItem) {
+            return (FileItem) item;
+        }
+
+        Folder folder = (Folder) item;
+        FileItem largest = null;
+        for (FileSystemItem child : folder.getItems()) {
+            FileItem childMax = findLargestFileRecursive(child);
+            if (childMax != null) {
+                if (largest == null || childMax.getSizeInKB() > largest.getSizeInKB()) {
+                    largest = childMax;
+                }
+            }
+        }
+        return largest;
+    }
 }
