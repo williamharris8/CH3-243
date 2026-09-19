@@ -22,5 +22,10 @@ public class Main {
 
         FileItem largest = FileSystemAnalyzer.findLargestFileRecursive(root);
         System.out.println("Largest file: " + largest.getName() + " (" + largest.getSizeInKB() + " KB)");
+
+        int recursiveCount = FileSystemAnalyzer.countFilesRecursive(root);
+        int iterativeCount = FileSystemAnalyzer.countFilesIterative(root);
+        System.out.println("Iterative count: " + iterativeCount);
+        System.out.println("Counts match: " + (recursiveCount == iterativeCount));
     }
 }
