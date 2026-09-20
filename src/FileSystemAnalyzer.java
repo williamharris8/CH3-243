@@ -75,4 +75,20 @@ public class FileSystemAnalyzer {
         }
         return fileCount;
     }
+
+    public static Folder findFolder(Folder current, String targetName) {
+        if (current.getName().equalsIgnoreCase(targetName)) {
+            return current;
+        }
+
+        for (FileSystemItem child : current.getItems()) {
+            if (child instanceof Folder) {
+                Folder result = findFolder((Folder) child, targetName);
+                if (result != null) {
+                    return result;
+                }
+            }
+        }
+        return null;
+    }
 }

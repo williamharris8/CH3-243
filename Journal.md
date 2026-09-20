@@ -4,3 +4,4 @@ PHASE 2 - When a folder only has empty subfolders the method checks each. Subfol
 
 PHASE 3 - Recursive version has more overhead time because every call makes java set upa new method call. The iterative version pushes and pops so its faster. For overhead space recursion saves a record on the call stack for every level it goes down which could cause a StackOverflowError. Iterative uses its own stack so doesnt have that problem. Recursive version in my opinion is easier to write and because it just says a folders count is the total of its childrens counts.
 
+PHASE 4 - The recursive method would keep calling itself on teh same folders forever until the call stack fills up and crashes with a StackOverflowError. Iterative loop would keep pushing the same folders back onto the stack so it never empties. Smaller caller rule says each call must work on a smaller problem. A circular reference breaks this rule because the method ends up back at the same folder. 
